@@ -1,0 +1,21 @@
+{% extends 'layouts/main.html' %}
+
+{% block content %}
+    <style type="text/css">
+        .hashtags {
+            display: flex;
+            width: auto;
+            margin-left: 10%;
+        }
+    </style>
+    <div class="hashtags">
+        {% for post in posts %}
+            <div class="card" style="width: 20%">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <a href="/posts/{{ post.id }}/" class="btn btn-primary">More</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
