@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Hashtag, Post, Comment
 
-
 # Create your views here.
 def hashtags_view(request):
     if request.method == 'GET':
@@ -20,6 +19,7 @@ def posts_view(request):
             posts = Post.objects.all()
         data = {
             posts: Post.objects.all()
+
         }
         return render(request, 'posts/posts.html', context=data)
 
