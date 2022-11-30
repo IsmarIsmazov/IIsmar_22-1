@@ -5,20 +5,27 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Hashtag(models.Model):
     title = models.CharField(max_length=50)
-    posts = models.ManyToManyField('Post', blank=True)
+    posts = models.ManyToManyField('Post', null=True, blank=True)
+
+    def str(self):
+        return self.title
+
+class Category(models.Model):
+    icon = models.ImageField()
+    title = models.CharField(max_length=255)
 
     def __str__(self):
         return self.title
-
+RATE =((i, '★' * i) for i in range(1, 6))
 
 class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
-    created_time = models.DateTimeField(auto_now_add=True)
     image = models.ImageField()
-    likes = models.IntegerField()
-    hashtags = models.ManyToManyField(Hashtag, blank=True)
+    price = models.FloatField()
+    rate = models.IntegerField(choices=RATE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title

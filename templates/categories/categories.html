@@ -1,0 +1,28 @@
+{% extends 'layouts/main.html' %}
+
+{% block content %}
+    <style type="text/css">
+        .category > img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .category {
+            display: flex;
+            justify-content: space-between;
+            width: 20%;
+        }
+    </style>
+    <div class="categories">
+        {% for category in categories %}
+            <div class="category">
+                <img src="/media/{{ category.icon }}" alt="">
+                <h3>
+                    <a href="/posts/?category_id={{ category.id }}">
+                        {{ category.title }} ({{ category.products.count }})
+                    </a>
+                </h3>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
