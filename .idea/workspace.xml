@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a3fa367-49e4-456f-a311-d2ef7345808e" name="Changes" comment="" />
+    <list default="true" id="1a3fa367-49e4-456f-a311-d2ef7345808e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/posts/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/posts.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,7 +123,10 @@
       <workItem from="1669637858462" duration="5581000" />
       <workItem from="1669709776388" duration="3195000" />
       <workItem from="1669793882860" duration="140000" />
-      <workItem from="1669794085878" duration="1749000" />
+      <workItem from="1669794085878" duration="1967000" />
+      <workItem from="1669812452110" duration="58000" />
+      <workItem from="1669812540736" duration="176000" />
+      <workItem from="1670040195128" duration="1944000" />
     </task>
     <servers />
   </component>

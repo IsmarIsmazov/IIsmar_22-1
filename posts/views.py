@@ -6,7 +6,7 @@ from posts.forms import CommentCreateForm, PostCreateForm
 
 
 # Create your views here.
-
+PAGINATION_LIMIT = 4
 
 def main(request):
     if request.method == 'GET':
@@ -19,14 +19,24 @@ def main(request):
 def posts_view(request):
     if request.method == 'GET':
         category_id = request.GET.get('category_id')
+        search_text = request.GET.get('search')
+        page = int(request.GET.get('page', 1))
         if category_id:
             posts = Post.objects.filter(category_id=category_id)
         else:
             posts = Post.objects.all()
+        if search_text:
+            posts = posts.filter(title__icontains=search_text)
+
+        max_page = round(posts.__len__()/ PAGINATION_LIMIT)
+        posts = posts[PAGINATION_LIMIT * (page - 1): PAGINATION_LIMIT * page]
 
         data = {
             'posts': posts,
-            'user': get_user_from_request(request)
+            'user': get_user_from_request(request),
+            'category_id': category_id,
+            'current_page': page,
+            'max_page': range(1, max_page+1)
         }
 
         return render(request, 'posts/posts.html', context=data)
