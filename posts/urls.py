@@ -1,17 +1,19 @@
 
+
 from django.contrib import admin
-from django.urls import path
-from posts.views import posts_view, categories_view, post_create_view, post_detail_view, hashtags_view
+from django.urls import path, include
+from posts.views import *
 from django.conf.urls.static import static
 from Blo2 import settings
 
-
 urlpatterns = [
-    path('hashtags/', hashtags_view),
-    path('posts/', posts_view),
-    path('posts/<int:id>/', post_detail_view),
-    path('categories/', categories_view),
-    path('posts/create/', post_create_view)
+    path('admin/', admin.site.urls),
+    path('posts/', PostListVIew.as_view()),
+    path('hashtags/', HashtagListView.as_view()),
+    path('posts/<int:id>/', PostDetailView.as_view()),
+    path('posts/create/', PostCreateView.as_view()),
+    path('users/', include('users.urls')),
+    path('categories/',CategoriesView.as_view())
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
