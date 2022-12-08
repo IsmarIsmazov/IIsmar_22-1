@@ -1,0 +1,6 @@
+from django.views.generic import ListView
+class WomenHome(ListView):
+    model = Women
+
+
+метод - "as_view" нужен для того что бы выводить полностью метод.
